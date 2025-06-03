@@ -1,6 +1,7 @@
-package com.ltu.m7019e.sg_recipe_book.database
+package com.ltu.m7019e.sg_recipe.database
 
-import com.ltu.m7019e.sg_recipe_book.model.Recipe
+import com.ltu.m7019e.sg_recipe.R
+import com.ltu.m7019e.sg_recipe.model.Recipe
 
 
 class Recipes {
@@ -60,6 +61,7 @@ class Recipes {
                         "Your Hainanese chicken rice is ready!\n" +
                         "*Tips\n" +
                         "Any left over chicken broth can be served as side soup, garnish with chopped spring onions or coriander.",
+                R.drawable.hainanese_chicken_rice
             ),
             Recipe(
                 2,
@@ -113,6 +115,7 @@ class Recipes {
                         "Ladle hot soup into each pork portions, set aside for 1-2 mins, then return them into hot soup pot through a slotted ladle and cook for a few secs. Use chopsticks to separate the minced pork into smaller pieces. Drain.\n" +
                         "To Serve\n" +
                         "In a serving bowl, add the sauce ingredients, noodles and bean shoots, mix well. Top with braised mushrooms, minced pork, pork liver, pork slices, fish cakes and lettuce. Garnish with sautéed spring onions and lard croutons.",
+                R.drawable.dry_bak_chor_mee
             ),
             Recipe(
                 3,
@@ -142,6 +145,7 @@ class Recipes {
                         "Toss in half the bean sprouts, stir for 15 secs and serve onto serving plate.\n" +
                         "Continue to cook the second serve in the same sequence.\n" +
                         "Serve while hot with sambal chilli and lime.",
+                R.drawable.char_kway_teow
 
             ),
             Recipe(
@@ -198,6 +202,7 @@ class Recipes {
                         "In a separate pot, cook laksa noodles, fish cakes and and bean sprouts.\n" +
                         "To assemble, place a portion of noodles into bowl, scoop laksa broth over and garnish with hard boiled egg, tofu puff, sliced fishcakes, blanched bean sprouts, laksa leaves and sambal.\n" +
                         "For the sambal, prepare ahead by sautéing all the ingredients except tamarind paste. Once it is about to be ready add in tamarind paste and season with salt and sugar. Serve sambal on the side.",
+                R.drawable.laksa
             ),
             Recipe(
                 5,
@@ -235,8 +240,16 @@ class Recipes {
                         "When both sides are crisp and golden brown, push the cubes aside with a spatula. Using the spatula, bring the oil to the centre and add garlic and preserved radish. Saute for ½ min and using the spatula, combine with the carrot cake. Drizzle in the soy sauce, fish sauce and sugar and sambal. Mix it thoroughly.\n" +
                         "Arrange the carrot cake in the centre of the pan in one layer. Slowly pour the beaten egg mixture over the entire surface. Use your spatula to gently move the carrot cake so that the egg settles in between the pieces. Leave it for a minute to crisp up.\n" +
                         "Then using the spatula, cut into and flip each carrot cake cube over to cook the other side for ½ min. Flip over again for a few seconds, then flip back. Turn off the heat and transfer to a serving plate. Sprinkle with chopped scallions and serve immediately.",
+                R.drawable.fried_carrot_cake
 
             )
         )
+    }
+
+    fun searchRecipes(query: String): List<Recipe> {
+        return getRecipes().filter { recipe ->
+            recipe.name.contains(query, ignoreCase = true) ||
+                    recipe.ingredients.contains(query, ignoreCase = true)
+        }
     }
 }
