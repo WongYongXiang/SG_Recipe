@@ -152,7 +152,7 @@ class Recipes {
                 4,
                 "Singapore Laksa",
                 "6 people",
-                "/Ingredients for Base Stock\n" +
+                "Ingredients for Base Stock\n" +
                         "Prawn shells from 1 kg of fresh prawns\n" +
                         "1½L water\n" +
                         "2 tbsp oil\n" +
